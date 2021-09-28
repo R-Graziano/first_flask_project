@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title> Index </title>
+</head>
+<body>
+
+    <h4> Esta es la página principal, de aqui puedes intentar ir a las siguientes páginas.
+    <br>Si no tienes acceso, te retornaran aquí mismo y probablemente ni te enteres de que eso haya pasado. </h4>
+    
+    <br>
+    {% if username != 'Undefined' %}
+        <h4> Bienvenido {{username}} </h4>
+    {% endif %}
+    <br>
+    <a href='/login'><button>Iniciar Sesión</button></a>
+    <a href='/logout'><button>Desconectarse</button></a>
+    <br>
+    <a href='/create'><button>Crear usuario nuevo</button></a>
+    <a href='/comment'><button>Crear comentario</button></a>
+    <a href='/reviews'><button>Ver comentarios</button></a>
+    <br>
+    <a href='/cookie'><button>Crear Cookie (NO USAR x AHORA)</button></a>
+    <a href='/404'><button>ver el error 404</button></a>
+
+
+</body>
+</html>

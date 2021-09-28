@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title> Comentarios </title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li> {{ message }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    {% from "_macro.html" import render_field %}
+
+    <form name="sentMessage" |id="commentForm" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        
+        {{ render_field(form.comment )}}
+        {{ render_field(form.honeypot )}}
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+
+</body>
+</html>

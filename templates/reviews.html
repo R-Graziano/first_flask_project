@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% block title %} Review {% endblock %}
+{% block content %}
+    <h3> Comentarios </h3>
+    <div class="container">
+        {% if comments %}
+            {% for comment in comments.items %}
+                <p> {{ comment.username }} - {{date_format(comment.created_date)}}
+                    <br> {{ comment.text }}
+                </p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+        <a href="/reviews/{{current_page-1}}"><button>Pág Anterior</button></a>
+        <a href="/reviews/{{current_page+1}}"><button>Pág Siguiente</button></a>
+{% endblock %}
