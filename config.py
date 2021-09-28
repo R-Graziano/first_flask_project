@@ -1,9 +1,10 @@
 import os
+from decouple import config
 
 class Config(object):
-    SECRET_KEY = 'my_secret_key'
-    MAIL_SERVER = 'smtp.gmail.com'
-    MAIL_PORT =  465 #587
+    SECRET_KEY = config('SECRET_KEY')
+    MAIL_SERVER = config('MAIL_SERVER')
+    MAIL_PORT =  config('MAIL_PORT')
     MAIL_USE_SSL = True
     MAIL_USE_TLS = False
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
@@ -11,5 +12,5 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:mysqlroot@localhost/flask' # Sin password: 'mysql://root:@localhost/flask' con password: 'mysql://root:password@localhost/flask'
+    SQLALCHEMY_DATABASE_URI = config('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
