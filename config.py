@@ -6,7 +6,7 @@ class Config(object):
     MAIL_PORT =  465 #587
     MAIL_USE_SSL = True
     MAIL_USE_TLS = False
-    MAIL_USERNAME = 'rodrigograziano97@gmail.com'
+    MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD =  os.environ.get('PASSWORD_EMAIL_APP') #os.environ.get('PASSWORD_EMAIL')
 
 class DevelopmentConfig(Config):
